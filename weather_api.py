@@ -63,7 +63,7 @@ def api_all():
     if city == "":
         return "<h1>Error</h1><p>City could not be found for airport code or name</p>"
 
-    weather = get_weather(city)
+    weather = call_api(city)
 
     if weather == -1:
         return "<h1>Error</h1><p>City could not be found</p>"
