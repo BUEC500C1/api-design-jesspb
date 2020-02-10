@@ -11,7 +11,7 @@ def getCityFromCode(code):
 
 
 #  finds airport name given an airport name
-def getCityFroAirport(airport):
+def getCityFromAirport(airport):
     with open("airports/airports_csv.csv", 'r') as filrCSV:
         csvreader = csv.reader(csvfile)
         for val in csvreader:

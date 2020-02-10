@@ -3,7 +3,8 @@ import json
 from flask import jsonify
 import requests
 from flask import request
-from extra_func import getAirportFromCode
+from extra_func import getCityFromCode
+from extra_func import getCityFromAirport
 from config import api_key
 
 app = flask.Flask(__name__)
@@ -37,3 +38,37 @@ def call_api(city):
     else:
         print("Error: Could not find city")
         return -1
+
+
+@app.route('/', methods=['GET'])
+def home():
+    return '''<h1>Airport Weather API</h1>
+<p>ENG EC 500 - Building Software Homework 2</p>'''
+
+
+# A route to return all of the available entries in our catalog.
+@app.route('/api/v1/resources/books/all', methods=['GET'])
+def api_all():
+
+     #  gets ident code or airport name from url
+    if 'code' in request.args:
+        code = request.args['code']
+        city = getCityFromCode(code)
+    elif 'airport' in request.args:
+        airport = request.args['airport']
+        city = getCityFromAirport(airport)
+    else:
+        return "<h1>Error</h1><p>Please enter an airport code or name.</p>"
+
+    if city == "":
+        return "<h1>Error</h1><p>City could not be found for airport code or name</p>"
+
+    weather = get_weather(city)
+
+    if weather == -1:
+        return "<h1>Error</h1><p>City could not be found</p>"
+    else:
+        return jsonify(weather)
+
+
+app.run()
