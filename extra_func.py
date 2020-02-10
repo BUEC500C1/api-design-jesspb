@@ -1,5 +1,4 @@
 import csv
-import requests
 
 def getCityFromCode(code):
     with open("airports/airports_csv.csv", 'r') as fileCSV:
