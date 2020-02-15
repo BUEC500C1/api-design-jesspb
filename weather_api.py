@@ -13,7 +13,7 @@ app.config["DEBUG"] = True
 
 def call_api(city):
     # openweathermap api call
-    url = "api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api_key
+    url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api_key
 
     response = requests.get(url).json()
 
@@ -47,7 +47,7 @@ def home():
 
 
 # A route to return all of the available entries in our catalog.
-@app.route('/api/v1/resources/books/all', methods=['GET'])
+@app.route('/api/v1', methods=['GET'])
 def api_all():
 
      #  gets ident code or airport name from url

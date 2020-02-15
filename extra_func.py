@@ -1,7 +1,7 @@
 import csv
 
 def getCityFromCode(code):
-    with open("airports/airports_csv.csv", 'r') as fileCSV:
+    with open("airports/airports_csv.csv", encoding="utf8") as fileCSV:
         csvreader = csv.reader(fileCSV)
         for val in csvreader:
             if val[1] == code:
@@ -11,7 +11,7 @@ def getCityFromCode(code):
 
 #  finds airport name given an airport name
 def getCityFromAirport(airport):
-    with open("airports/airports_csv.csv", 'r') as fileCSV:
+    with open("airports/airports_csv.csv", encoding="utf8") as fileCSV:
         csvreader = csv.reader(fileCSV)
         for val in csvreader:
             if val[3] == airport:
