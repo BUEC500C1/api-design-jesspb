@@ -12,10 +12,10 @@ EC 500 - Building Software
 
 Insert API key in config.py file
 
-run ```bash python weather_api.py ``` The local host will start running and the welcome page will show.
+run ```python weather_api.py ``` The local host will start running and the welcome page will show.
 
 To search for an airport, add a code param or an airport param. For example,
 
-/api/v1?ident=FACE
+```/api/v1?ident=FACE```
 
-/api/v1?name=Ceres Airport
+```/api/v1?name=Ceres Airport```
