@@ -16,6 +16,6 @@ run ```python weather_api.py ``` The local host will start running and the welco
 
 To search for an airport, add a code param or an airport param. For example,
 
-```/api/v1?ident=FACE```
+```/api/v1?code=FACE```
 
-```/api/v1?name=Ceres Airport```
+```/api/v1?airport=Ceres Airport```
